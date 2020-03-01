@@ -9,12 +9,25 @@
 import Foundation
 
 struct Movie: Decodable {
-    let results: [Result]
+    
+    let results: [MovieData]
+    
+    init(results: [MovieData]) {
+        self.results = results
+    }
 }
 
-struct Result: Decodable {
+struct MovieData: Decodable {
+    
     let posterPath: String?
     let title: String?
     let overview: String?
     let releaseDate: String?
+    
+    init(posterPath: String, title: String, overview: String, releaseDate: String) {
+        self.posterPath = posterPath
+        self.title = title
+        self.overview = overview
+        self.releaseDate = releaseDate
+    }
 }
