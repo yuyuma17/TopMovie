@@ -12,23 +12,22 @@ import XCTest
 class TopMovieTests: XCTestCase {
 
     override func setUp() {
+        super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
 
     override func tearDown() {
+        super.tearDown()
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
+    func testMovieViewModel() {
+        let movieData = MovieData(posterPath: "/aQvJ5WPzZgYVDrxLX4R6cLJCEaQ.jpg", title: "Sonic the Hedgehog", overview: "Based on the global blockbuster videogame franchise from Sega, Sonic the Hedgehog tells the story of the world’s speediest hedgehog as he embraces his new home on Earth. In this live-action adventure comedy, Sonic and his new best friend team up to defend the planet from the evil genius Dr. Robotnik and his plans for world domination.", releaseDate: "2020-02-12")
+        let movieViewModel = MovieViewModel(movieData: movieData)
+        
+        XCTAssertEqual(movieData.title, movieViewModel.title)
+        XCTAssertEqual(movieData.posterPath, movieViewModel.posterPath)
+        XCTAssertEqual(movieData.overview, movieViewModel.overview)
+        XCTAssertEqual(movieData.releaseDate, movieViewModel.releaseDate)
     }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
 }
